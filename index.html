@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Les petits plats</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+	<header class="page-header">
+		<img src="assets/logo.png" alt="logo">
+		<h1 class="sr-only">Les petits plats</h1>
+		<div class="form-inline" id="searchbar">
+			<input class="form-control mr-sm-2" type="text">
+			<i class="fa-solid fa-magnifying-glass"></i>
+		</div>
+	</header>
+	<nav class="d-inline-flex">
+		<div class="dropdown">
+			<button class="btn btn-ingredients dropdown-toggle" type="button" id="dropdownIngredients" data-toggle="dropdown">
+				Ingrédients
+			</button>
+			<div class="dropdown-menu dropdown-ingredients" aria-labelledby="dropdownMenuButton">
+				<input class="form-control mr-sm-2 dropdown--search" type="text" placeholder="Rechercher un ingrédient">
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="btn btn-apparels dropdown-toggle" type="button" id="dropdownApparels" data-toggle="dropdown">
+				Appareils
+			</button>
+			<div class="dropdown-menu dropdown-apparels" aria-labelledby="dropdownApparels"></div>
+		</div>
+		<div class="dropdown">
+			<button class="btn btn-ustensils dropdown-toggle" type="button" id="dropdownUstensils" data-toggle="dropdown">
+				Ustensiles
+			</button>
+			<div class="dropdown-menu dropdown-ustensils" aria-labelledby="dropdownUstensils"></div>
+		</div>
+	</nav>
+	<section class="row" id="recipes">
+		<article class="card bg-default">
+			<div class="card-preview">
+				<!--<img src="" alt="recipe">-->
+			</div>
+			<footer class="card-footer">
+				<h2 class="card-title">Recette</h2>
+				<data value="10"><i class="fa-regular fa-clock"></i> 10 min</data>
+			</footer>
+		</article>
+	</section>
+</div>
+	<!-- Libraries -->
+    <script src="scripts/bootstrap/jquery.min.js"></script>
+    <script src="scripts/bootstrap/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/325736b578.js" crossorigin="anonymous"></script>
+	<!-- Page builders -->
+    <script src="scripts/pages/index.js"></script>
+	<!-- Models -->
+	<script src="scripts/models/Recipe.js"></script>
+	<!-- Utils -->
+	<script src="scripts/utils/utils.js"></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+body {
+  max-width: 1440px;
+  margin: 0 100px;
+  font-family: "Lato", sans-serif;
+}
+
+header {
+  text-align: center;
+}
+header img {
+  max-height: 100px;
+  max-width: 100%;
+  margin: 40px 0 15px 0;
+}
+header #searchbar {
+  position: relative;
+  width: 100%;
+  margin: 2px auto;
+  text-align: center;
+}
+header #searchbar input {
+  width: 100%;
+  border: none;
+  background-color: #E7E7E7;
+}
+header #searchbar i {
+  position: absolute;
+  right: 25px;
+}
+
+nav {
+  height: 170px;
+}
+nav .dropdown {
+  position: relative;
+}
+nav .dropdown-menu {
+  position: absolute;
+  left: 25px;
+  top: 23px;
+  width: 300px;
+  height: 200px;
+}
+nav .dropdown--search {
+  background: transparent;
+  border: none;
+  color: #C7BEBE;
+}
+nav .dropdown--search:focus {
+  background: transparent;
+  border: none;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+}
+nav .dropdown--search::-moz-placeholder {
+  color: #C7BEBE;
+}
+nav .dropdown--search:-ms-input-placeholder {
+  color: #C7BEBE;
+}
+nav .dropdown--search::placeholder {
+  color: #C7BEBE;
+}
+nav .dropdown .btn {
+  height: 70px;
+  margin: 25px;
+}
+nav .dropdown .btn:focus {
+  box-shadow: none;
+}
+nav .dropdown .btn:focus + div {
+  box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.25);
+}
+nav .dropdown .btn, nav .dropdown .dropdown {
+  color: #FFF;
+}
+nav .dropdown .btn-ingredients, nav .dropdown .dropdown-ingredients {
+  border-color: #3282F7;
+  background-color: #3282F7;
+}
+nav .dropdown .btn-apparels, nav .dropdown .dropdown-apparels {
+  border-color: #68D9A4;
+  background-color: #68D9A4;
+}
+nav .dropdown .btn-ustensils, nav .dropdown .dropdown-ustensils {
+  border-color: #ED6454;
+  background-color: #ED6454;
+}
+
+section#recipes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+section#recipes article .card-preview {
+  height: 170px;
+  background-color: #C7BEBE;
+}/*# sourceMappingURL=style.css.map */

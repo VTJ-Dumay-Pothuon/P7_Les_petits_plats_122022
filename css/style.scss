@@ -1,0 +1,94 @@
+body {
+    max-width: 1440px;
+    margin: 0 100px; 
+    font-family: 'Lato', sans-serif;
+}
+
+header {
+    text-align: center;
+    img {
+        max-height: 100px;
+        max-width: 100%;
+        margin: 40px 0 15px 0;
+    }
+    #searchbar {
+        position: relative;
+        width: 100%;
+        margin: 2px auto;
+        text-align: center;
+        input {
+            width: 100%;
+            border: none;
+            background-color: #E7E7E7;
+        }
+        i {
+            position: absolute;
+            right: 25px;
+        }
+    }
+}
+
+nav {
+    height: 170px;
+    .dropdown {
+        position: relative;
+        &-menu {
+            position: absolute;
+            left: 25px;
+            top: 23px;
+            width: 300px;
+            height: 200px;
+        }
+        &--search {
+            background: transparent;
+            border: none;
+            color: #C7BEBE;
+            &:focus {
+                background: transparent;
+                border: none;
+                color: #FFF;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            &::placeholder {
+                color: #C7BEBE;
+            }
+        }
+        .btn {
+            height: 70px;
+            margin: 25px;
+            &:focus {
+                box-shadow: none;
+                &+ div {
+                    box-shadow: 0 0 0 2px rgba(2,117,216,.25)
+                }
+            }
+        }
+        .btn, .dropdown {
+            color: #FFF;
+            &-ingredients {
+                border-color: #3282F7;
+                background-color: #3282F7;
+            }
+            &-apparels {
+                border-color: #68D9A4;
+                background-color: #68D9A4;
+            }
+            &-ustensils {
+                border-color: #ED6454;
+                background-color: #ED6454;
+            }
+        }
+    }
+}
+
+section#recipes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    article {
+        .card-preview {
+            height: 170px;
+            background-color: #C7BEBE;
+        }
+    }
+}
