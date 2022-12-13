@@ -10,6 +10,7 @@
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
@@ -19,44 +20,119 @@
 		<img src="assets/logo.png" alt="logo">
 		<h1 class="sr-only">Les petits plats</h1>
 		<div class="form-inline" id="searchbar">
-			<input class="form-control mr-sm-2" type="text">
+			<input class="form-control mr-sm-2" type="text" placeholder="Rechercher une recette">
 			<i class="fa-solid fa-magnifying-glass"></i>
 		</div>
 	</header>
-	<nav class="d-inline-flex">
+	<nav class="d-sm-flex">
 		<div class="dropdown">
-			<button class="btn btn-ingredients dropdown-toggle" type="button" id="dropdownIngredients" data-toggle="dropdown">
-				Ingrédients
+			<button class="btn btn__ingredients" type="button" id="dropdownIngredients" data-toggle="dropdown">
+				Ingrédients <i class="fa-solid fa-chevron-down"></i>
 			</button>
-			<div class="dropdown-menu dropdown-ingredients" aria-labelledby="dropdownMenuButton">
-				<input class="form-control mr-sm-2 dropdown--search" type="text" placeholder="Rechercher un ingrédient">
+			<div class="dropdown-menu dropdown__ingredients" aria-labelledby="dropdownMenuButton">
+				<input class="form-control mr-sm-2 dropdown-search" type="text" placeholder="Rechercher un ingrédient">
+				<i class="fa-solid fa-chevron-up"></i>
 			</div>
 		</div>
 		<div class="dropdown">
-			<button class="btn btn-apparels dropdown-toggle" type="button" id="dropdownApparels" data-toggle="dropdown">
-				Appareils
+			<button class="btn btn__apparels" type="button" id="dropdownApparels" data-toggle="dropdown">
+				Appareils <i class="fa-solid fa-chevron-down"></i>
 			</button>
-			<div class="dropdown-menu dropdown-apparels" aria-labelledby="dropdownApparels"></div>
+			<div class="dropdown-menu dropdown__apparels" aria-labelledby="dropdownApparels">
+				<input class="form-control mr-sm-2 dropdown-search" type="text" placeholder="Rechercher un ingrédient">
+				<i class="fa-solid fa-chevron-up"></i>
+			</div>
 		</div>
 		<div class="dropdown">
-			<button class="btn btn-ustensils dropdown-toggle" type="button" id="dropdownUstensils" data-toggle="dropdown">
-				Ustensiles
+			<button class="btn btn__ustensils" type="button" id="dropdownUstensils" data-toggle="dropdown">
+				Ustensiles <i class="fa-solid fa-chevron-down"></i>
 			</button>
-			<div class="dropdown-menu dropdown-ustensils" aria-labelledby="dropdownUstensils"></div>
+			<div class="dropdown-menu dropdown__ustensils" aria-labelledby="dropdownUstensils">
+				<input class="form-control mr-sm-2 dropdown-search" type="text" placeholder="Rechercher un ingrédient">
+				<i class="fa-solid fa-chevron-up"></i>
+			</div>
 		</div>
 	</nav>
-	<section class="row" id="recipes">
-		<article class="card bg-default">
-			<div class="card-preview">
+	<main class="recipes d-sm-flex flex-wrap justify-content-between">
+		<article class="card recipe bg-default">
+			<div class="recipe__preview">
 				<!--<img src="" alt="recipe">-->
 			</div>
-			<footer class="card-footer">
-				<h2 class="card-title">Recette</h2>
-				<data value="10"><i class="fa-regular fa-clock"></i> 10 min</data>
-			</footer>
+			<section class="recipe__field">
+				<div class="recipe__header">
+					<h2 class="recipe__title">Limonade de coco</h2>
+					<data class="recipe__time" value="10"><i class="fa-regular fa-clock"></i> 10 min</data>
+				</div>
+				<div class="recipe__content">
+					<div class="recipe__content__ingredients">
+						<ul>
+							<li><strong>Lait de coco:</strong> 400ml</li>
+							<li><strong>Jus de citron:</strong> 2</li>
+							<li><strong>Crème de coco:</strong> 4 cuillères</li>
+							<li><strong>Sucre:</strong> 20g</li>
+							<li><strong>Glaçons:</strong> 2</li>
+						</ul>
+					</div>
+					<div class="recipe__content__recipe">
+						<p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. 
+						   Mixer jusqu'à avoir la consistence désirée.</p>
+					</div>
+				</div>
+			</section>
 		</article>
-	</section>
-</div>
+		<article class="card recipe bg-default">
+			<div class="recipe__preview">
+				<!--<img src="" alt="recipe">-->
+			</div>
+			<section class="recipe__field">
+				<div class="recipe__header">
+					<h2 class="recipe__title">Limonade de coco</h2>
+					<data class="recipe__time" value="10"><i class="fa-regular fa-clock"></i> 10 min</data>
+				</div>
+				<div class="recipe__content">
+					<div class="recipe__content__ingredients">
+						<ul>
+							<li><strong>Lait de coco:</strong> 400ml</li>
+							<li><strong>Jus de citron:</strong> 2</li>
+							<li><strong>Crème de coco:</strong> 4 cuillères</li>
+							<li><strong>Sucre:</strong> 20g</li>
+							<li><strong>Glaçons:</strong> 2</li>
+						</ul>
+					</div>
+					<div class="recipe__content__recipe">
+						<p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. 
+						   Mixer jusqu'à avoir la consistence désirée.</p>
+					</div>
+				</div>
+			</section>
+		</article>
+		<article class="card recipe bg-default">
+			<div class="recipe__preview">
+				<!--<img src="" alt="recipe">-->
+			</div>
+			<section class="recipe__field">
+				<div class="recipe__header">
+					<h2 class="recipe__title">Limonade de coco</h2>
+					<data class="recipe__time" value="10"><i class="fa-regular fa-clock"></i> 10 min</data>
+				</div>
+				<div class="recipe__content">
+					<div class="recipe__content__ingredients">
+						<ul>
+							<li><strong>Lait de coco:</strong> 400ml</li>
+							<li><strong>Jus de citron:</strong> 2</li>
+							<li><strong>Crème de coco:</strong> 4 cuillères</li>
+							<li><strong>Sucre:</strong> 20g</li>
+							<li><strong>Glaçons:</strong> 2</li>
+						</ul>
+					</div>
+					<div class="recipe__content__recipe">
+						<p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. 
+						   Mixer jusqu'à avoir la consistence désirée.</p>
+					</div>
+				</div>
+			</section>
+		</article>
+	</main>
 	<!-- Libraries -->
     <script src="scripts/bootstrap/jquery.min.js"></script>
     <script src="scripts/bootstrap/bootstrap.min.js"></script>
@@ -66,6 +142,6 @@
 	<!-- Models -->
 	<script src="scripts/models/Recipe.js"></script>
 	<!-- Utils -->
-	<script src="scripts/utils/utils.js"></script>
+	<script src="scripts/utils/sort.js"></script>
   </body>
 </html>

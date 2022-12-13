@@ -1,7 +1,11 @@
 body {
-    max-width: 1440px;
-    margin: 0 100px; 
+    max-width: 1240px;
+    margin: 0 20px; 
     font-family: 'Lato', sans-serif;
+}
+
+@media screen and (min-width: 1240px) {
+    body { margin: 0 auto }
 }
 
 header {
@@ -29,52 +33,70 @@ header {
 }
 
 nav {
-    height: 170px;
     .dropdown {
         position: relative;
         &-menu {
             position: absolute;
             left: 25px;
             top: 23px;
-            width: 300px;
-            height: 200px;
+            width: 40vw;
+            max-width: 700px;
+            height: 24vw;
+            max-height: 400px;
+            .fa-chevron-up {
+                position: absolute;
+                right: 16px;
+                top: 24px;
+                color: #FFF;
+            }
         }
-        &--search {
+        &-search {
+            width: 94%;
+            max-width: 650px;
             background: transparent;
             border: none;
-            color: #C7BEBE;
+            color: #FFF;
+            opacity: 0.5;
             &:focus {
                 background: transparent;
                 border: none;
                 color: #FFF;
                 font-size: 18px;
-                font-weight: bold;
+                font-weight: 700;
+                opacity: 1;
             }
             &::placeholder {
-                color: #C7BEBE;
+                color: #FFF;
             }
         }
         .btn {
             height: 70px;
+            width: 180px;
             margin: 25px;
+            text-align: left;
             &:focus {
                 box-shadow: none;
                 &+ div {
                     box-shadow: 0 0 0 2px rgba(2,117,216,.25)
                 }
             }
+            .fa-chevron-down {
+                position: absolute;
+                right: 40px;
+                top: 52px;
+            }
         }
         .btn, .dropdown {
             color: #FFF;
-            &-ingredients {
+            &__ingredients {
                 border-color: #3282F7;
                 background-color: #3282F7;
             }
-            &-apparels {
+            &__apparels {
                 border-color: #68D9A4;
                 background-color: #68D9A4;
             }
-            &-ustensils {
+            &__ustensils {
                 border-color: #ED6454;
                 background-color: #ED6454;
             }
@@ -82,13 +104,46 @@ nav {
     }
 }
 
-section#recipes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    article {
-        .card-preview {
+.recipes {
+    .recipe {
+        width: 380px;
+        margin-bottom: 50px;
+        background-color: #E7E7E7;
+        &__preview {
+            border-radius: 3px 3px 0 0;
             height: 170px;
             background-color: #C7BEBE;
+        }
+        &__field { padding: 20px }
+        &__header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "title time";
+            align-items: center;
+            margin-bottom: 20px;
+        }
+            &__title {
+                grid-area: title;
+                display: inline-block;
+                font-size: 18px;
+                font-weight: 400;
+                margin-bottom: 0;
+            }
+            &__time {
+                grid-area: time;
+                font-size: 18px;
+                font-weight: 700;
+                text-align: right;
+            }
+
+        &__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            font-size: 12px;
+            &__ingredients ul {
+                padding-left: 0;
+                list-style: none;
+            }
         }
     }
 }
