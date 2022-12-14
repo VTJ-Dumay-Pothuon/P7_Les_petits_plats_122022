@@ -4,10 +4,6 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-@media screen and (min-width: 1240px) {
-    body { margin: 0 auto }
-}
-
 header {
     text-align: center;
     img {
@@ -33,6 +29,7 @@ header {
 }
 
 nav {
+    height: 150px;
     .dropdown {
         position: relative;
         &-menu {
@@ -57,12 +54,12 @@ nav {
             border: none;
             color: #FFF;
             opacity: 0.5;
+            font-size: 18px;
+            font-weight: 700;
             &:focus {
                 background: transparent;
                 border: none;
                 color: #FFF;
-                font-size: 18px;
-                font-weight: 700;
                 opacity: 1;
             }
             &::placeholder {
@@ -73,6 +70,7 @@ nav {
             height: 70px;
             width: 180px;
             margin: 25px;
+            margin-left: 0;
             text-align: left;
             &:focus {
                 box-shadow: none;
@@ -105,35 +103,39 @@ nav {
 }
 
 .recipes {
-    .recipe {
-        width: 380px;
-        margin-bottom: 50px;
+    .card {
+        max-width: 380px;
+        height: 364px;
         background-color: #E7E7E7;
         &__preview {
             border-radius: 3px 3px 0 0;
             height: 170px;
             background-color: #C7BEBE;
         }
-        &__field { padding: 20px }
+        &__field { 
+            padding: 20px;
+            height: 186px;
+        }
         &__header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas: "title time";
             align-items: center;
             margin-bottom: 20px;
         }
             &__title {
-                grid-area: title;
                 display: inline-block;
+                max-width: 240px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
                 font-size: 18px;
                 font-weight: 400;
                 margin-bottom: 0;
             }
             &__time {
-                grid-area: time;
+                width: 92px;
                 font-size: 18px;
                 font-weight: 700;
                 text-align: right;
+                white-space: nowrap;
             }
 
         &__content {
@@ -144,6 +146,37 @@ nav {
                 padding-left: 0;
                 list-style: none;
             }
+            &__recipe p {
+                height: 110px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-bottom: 0;
+            }
         }
     }
+}
+
+/* This trick makes recipe wrap after six lines instead of one */
+/* It's supported by all modern navigators */
+@supports (display: -webkit-box) {
+    .card__content__recipe p {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 6;
+    }
+}
+
+/* This trick aligns the last element to the left when screen can display three columns */
+/* Works for any  */
+@media screen and (min-width: 1180px) {
+    .recipes::after {
+        content: "";
+        flex: auto;
+        max-width: 380px;
+    }
+}
+
+/* This allows for max 1440px width with 100px margin on each side */
+@media screen and (min-width: 1240px) {
+    body { margin: 0 auto }
 }
