@@ -36,7 +36,7 @@ nav .dropdown {
 }
 nav .dropdown-menu {
   position: absolute;
-  left: 25px;
+  left: 0;
   top: 23px;
   width: 40vw;
   max-width: 700px;
