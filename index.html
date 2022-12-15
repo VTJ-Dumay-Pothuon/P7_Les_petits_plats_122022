@@ -20,11 +20,14 @@
 		<img src="assets/logo.png" alt="logo">
 		<h1 class="sr-only">Les petits plats</h1>
 		<div class="form-inline" id="searchbar">
-			<input class="form-control mr-sm-2" type="text" placeholder="Rechercher une recette">
+			<input class="form-control" type="text" placeholder="Rechercher une recette">
 			<i class="fa-solid fa-magnifying-glass"></i>
 		</div>
 	</header>
-	<nav class="d-sm-flex">
+	<nav class="d-sm-flex flex-wrap">
+		<div class="taglist col-md-12 d-sm-flex p-0">
+			<ul class="taglist--active d-inline-flex"></ul>
+		</div>
 		<div class="dropdown">
 			<button class="btn btn__ingredients" type="button" id="dropdownIngredients" data-toggle="dropdown">
 				Ingrédients <i class="fa-solid fa-chevron-down"></i>

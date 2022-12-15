@@ -1,3 +1,4 @@
+// Tag type factory
 function getAllItems(type) {
     if (type === 'ingredients') {
         return getAllIngredients();
@@ -8,6 +9,7 @@ function getAllItems(type) {
     }
 }
 
+// Tag DOM builder
 function fill(type) {
     const field = document.querySelector(`.dropdown__list--${type}`);
     const list = document.createElement('ul');
@@ -20,9 +22,26 @@ function fill(type) {
         li.classList.add(`${type}`.slice(0, -1),'col-4');
         li.textContent = item;
         list.appendChild(li);
+
+        li.addEventListener('click', function () {
+            li.classList.add('d-none');
+            const tag = document.createElement('li');
+            tag.classList.add('tag','d-sm-flex','align-items-center','justify-content-between');
+            tag.classList.add(`tag--${type}`);
+            tag.innerHTML = `<span>${item}</span><i class="fa-regular fa-circle-xmark"></i>`;
+            const tags = document.querySelector('.taglist--active');
+            tags.appendChild(tag);
+
+            const removeTag = tag.querySelector('i');
+            removeTag.addEventListener('click', function () {
+                tags.removeChild(tag);
+                li.classList.remove('d-none');
+            })
+        })
     })
 }
 
+// Recipe card builder
 function render() {
 
     recipesField = document.querySelector('main.recipes');

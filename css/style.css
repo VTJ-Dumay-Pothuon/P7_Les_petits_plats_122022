@@ -36,6 +36,43 @@ header #searchbar i {
 nav {
   height: 150px;
 }
+nav .taglist--active {
+  overflow-y: scroll;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+nav .taglist--active .tag {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFF;
+}
+nav .taglist--active .tag span {
+  white-space: nowrap;
+}
+nav .taglist--active .tag i {
+  display: inline-block;
+  margin-top: 2px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+nav .taglist--active .tag--ingredients {
+  border-color: #3282F7;
+  background-color: #3282F7;
+}
+nav .taglist--active .tag--appliances {
+  border-color: #68D9A4;
+  background-color: #68D9A4;
+}
+nav .taglist--active .tag--ustensils {
+  border-color: #ED6454;
+  background-color: #ED6454;
+}
 nav .dropdown {
   position: relative;
 }

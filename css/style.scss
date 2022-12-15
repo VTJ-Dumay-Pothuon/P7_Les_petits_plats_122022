@@ -35,6 +35,41 @@ header {
 
 nav {
     height: 150px;
+    .taglist--active {
+        overflow-y: scroll;
+        margin-bottom: 0;
+        margin-top: 1rem;
+        .tag {
+            width: fit-content;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #FFF;
+            span {
+                white-space: nowrap;
+            }
+            i {
+                display: inline-block;
+                margin-top: 2px;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+            &--ingredients {
+                border-color: #3282F7;
+                background-color: #3282F7;
+            }
+            &--appliances {
+                border-color: #68D9A4;
+                background-color: #68D9A4;
+            }
+            &--ustensils {
+                border-color: #ED6454;
+                background-color: #ED6454;
+            }
+        }
+    }
     .dropdown {
         position: relative;
         &-menu {
