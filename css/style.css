@@ -4,6 +4,11 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
 header {
   text-align: center;
 }
@@ -74,6 +79,17 @@ nav .dropdown-search:-ms-input-placeholder {
 nav .dropdown-search::placeholder {
   color: #FFF;
 }
+nav .dropdown section[class^=dropdown__list--] {
+  color: #FFF;
+  max-height: 305px;
+  overflow: scroll;
+}
+nav .dropdown section[class^=dropdown__list--] li {
+  cursor: default;
+}
+nav .dropdown section[class^=dropdown__list--] li:hover {
+  text-decoration: underline;
+}
 nav .dropdown .btn {
   height: 70px;
   width: 180px;
@@ -99,7 +115,7 @@ nav .dropdown .btn__ingredients, nav .dropdown .dropdown__ingredients {
   border-color: #3282F7;
   background-color: #3282F7;
 }
-nav .dropdown .btn__apparels, nav .dropdown .dropdown__apparels {
+nav .dropdown .btn__appliances, nav .dropdown .dropdown__appliances {
   border-color: #68D9A4;
   background-color: #68D9A4;
 }
@@ -148,10 +164,6 @@ nav .dropdown .btn__ustensils, nav .dropdown .dropdown__ustensils {
   grid-template-columns: 1fr 1fr;
   font-size: 12px;
 }
-.recipes .card__content__ingredients ul {
-  padding-left: 0;
-  list-style: none;
-}
 .recipes .card__content__recipe p {
   height: 110px;
   overflow: hidden;
@@ -171,9 +183,11 @@ nav .dropdown .btn__ustensils, nav .dropdown .dropdown__ustensils {
 /* This trick aligns the last element to the left when screen can display three columns */
 /* Works for any  */
 @media screen and (min-width: 1180px) {
-  .recipes::after {
+  .row::after {
     content: "";
     flex: auto;
+  }
+  .recipes::after {
     max-width: 380px;
   }
 }

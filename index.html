@@ -32,15 +32,17 @@
 			<div class="dropdown-menu dropdown__ingredients" aria-labelledby="dropdownMenuButton">
 				<input class="form-control mr-sm-2 dropdown-search" type="text" placeholder="Rechercher un ingrédient">
 				<i class="fa-solid fa-chevron-up"></i>
+				<section class="dropdown__list--ingredients"></section>
 			</div>
 		</div>
 		<div class="dropdown">
-			<button class="btn btn__apparels" type="button" id="dropdownApparels" data-toggle="dropdown">
+			<button class="btn btn__appliances" type="button" id="dropdownappliances" data-toggle="dropdown">
 				Appareils <i class="fa-solid fa-chevron-down"></i>
 			</button>
-			<div class="dropdown-menu dropdown__apparels" aria-labelledby="dropdownApparels">
+			<div class="dropdown-menu dropdown__appliances" aria-labelledby="dropdownappliances">
 				<input class="form-control mr-sm-2 dropdown-search" type="text" placeholder="Rechercher un ingrédient">
 				<i class="fa-solid fa-chevron-up"></i>
+				<section class="dropdown__list--appliances"></section>
 			</div>
 		</div>
 		<div class="dropdown">
@@ -50,6 +52,7 @@
 			<div class="dropdown-menu dropdown__ustensils" aria-labelledby="dropdownUstensils">
 				<input class="form-control mr-sm-2 dropdown-search" type="text" placeholder="Rechercher un ingrédient">
 				<i class="fa-solid fa-chevron-up"></i>
+				<section class="dropdown__list--ustensils"></section>
 			</div>
 		</div>
 	</nav>
@@ -66,6 +69,10 @@
 	<script src="scripts/utils/sort.js"></script>
 	<!-- Models -->
 	<script src="scripts/models/Recipe.js"></script>
+	<!-- Taglist generators -->
+	<script src="scripts/taglists/ingredients.js"></script>
+	<script src="scripts/taglists/appliances.js"></script>
+	<script src="scripts/taglists/ustensils.js"></script>
 	<!-- Page builders -->
     <script src="scripts/pages/index.js"></script>
   </body>

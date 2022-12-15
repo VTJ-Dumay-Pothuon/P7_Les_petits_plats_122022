@@ -4,6 +4,11 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
 header {
     text-align: center;
     img {
@@ -66,6 +71,17 @@ nav {
                 color: #FFF;
             }
         }
+        section[class^='dropdown__list--'] {
+            color: #FFF;
+            max-height: 305px;
+            overflow: scroll;
+            li {
+                cursor: default;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
         .btn {
             height: 70px;
             width: 180px;
@@ -90,7 +106,7 @@ nav {
                 border-color: #3282F7;
                 background-color: #3282F7;
             }
-            &__apparels {
+            &__appliances {
                 border-color: #68D9A4;
                 background-color: #68D9A4;
             }
@@ -142,10 +158,6 @@ nav {
             display: grid;
             grid-template-columns: 1fr 1fr;
             font-size: 12px;
-            &__ingredients ul {
-                padding-left: 0;
-                list-style: none;
-            }
             &__recipe p {
                 height: 110px;
                 overflow: hidden;
@@ -169,9 +181,11 @@ nav {
 /* This trick aligns the last element to the left when screen can display three columns */
 /* Works for any  */
 @media screen and (min-width: 1180px) {
-    .recipes::after {
+    .row::after  {
         content: "";
         flex: auto;
+    }
+    .recipes::after {
         max-width: 380px;
     }
 }
