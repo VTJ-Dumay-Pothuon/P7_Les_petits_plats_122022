@@ -24,18 +24,20 @@ function fill(type) {
         list.appendChild(li);
 
         li.addEventListener('click', function () {
-            li.classList.add('d-none');
+            li.classList.add('d-none'); 
             const tag = document.createElement('li');
             tag.classList.add('tag','d-sm-flex','align-items-center','justify-content-between');
             tag.classList.add(`tag--${type}`);
             tag.innerHTML = `<span>${item}</span><i class="fa-regular fa-circle-xmark"></i>`;
             const tags = document.querySelector('.taglist--active');
             tags.appendChild(tag);
+            filterByTag(tags);
 
             const removeTag = tag.querySelector('i');
             removeTag.addEventListener('click', function () {
                 tags.removeChild(tag);
                 li.classList.remove('d-none');
+                filterByTag(tags);
             })
         })
     })
