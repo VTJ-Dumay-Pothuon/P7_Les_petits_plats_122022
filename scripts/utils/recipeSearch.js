@@ -1,5 +1,11 @@
 // This file will be different depending on the branch you're on.
 function getFilteredRecipes(e,searchedRecipe) {
-    // On this main/master branch, it does nothing.
-    return recipes;
+    // On this "native" branch, we're using the native loops and methods
+    let matchingRecipes = [];
+    for (recipe of recipes) {
+        if (recipe.name.toLowerCase().includes(searchedRecipe.toLowerCase())) {
+            matchingRecipes.push(recipe);
+        }
+    }
+    return matchingRecipes;
 }
