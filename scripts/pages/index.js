@@ -55,10 +55,26 @@ function fill(type) {
 // Recipe card builder
 function render() {
 
-    recipesField = document.querySelector('main.recipes');
+    const recipesField = document.querySelector('main.recipes');
     recipes.forEach(function (recipe) {
         const recipeCard = getRecipeCardDOM(recipe);
         recipesField.appendChild(recipeCard);
+    })
+
+    const recipeSearch = document.querySelector('#searchbar input');
+    recipeSearch.addEventListener('keyup', function (e) {
+        // if length of searchbar is less than 3, don't filter
+        if (recipeSearch.value.length < 3) {
+            recipesField.innerHTML = '';
+            render();
+        } else {
+            recipesField.innerHTML = '';
+            const filteredRecipes = getFilteredRecipes(e,recipeSearch.value);
+            filteredRecipes.forEach(function (recipe) {
+                const recipeCard = getRecipeCardDOM(recipe);
+                recipesField.appendChild(recipeCard);
+            })
+        }
     })
 
     fill('ingredients');
