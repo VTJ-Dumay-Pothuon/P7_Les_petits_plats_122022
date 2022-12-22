@@ -119,7 +119,7 @@ nav .dropdown-search::placeholder {
 }
 nav .dropdown section[class^=dropdown__list--] {
   color: #FFF;
-  max-height: 164px;
+  max-height: 154px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
