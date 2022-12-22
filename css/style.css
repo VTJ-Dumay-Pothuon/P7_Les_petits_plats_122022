@@ -37,7 +37,8 @@ nav {
   height: 150px;
 }
 nav .taglist--active {
-  overflow-y: scroll;
+  width: 100%;
+  overflow-x: auto;
   margin-bottom: 0;
   margin-top: 1rem;
 }
@@ -118,8 +119,10 @@ nav .dropdown-search::placeholder {
 }
 nav .dropdown section[class^=dropdown__list--] {
   color: #FFF;
-  max-height: 305px;
-  overflow: scroll;
+  max-height: 164px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
 }
 nav .dropdown section[class^=dropdown__list--] li {
   cursor: default;
@@ -202,7 +205,8 @@ nav .dropdown .btn__ustensils, nav .dropdown .dropdown__ustensils {
   font-size: 12px;
 }
 .recipes .card__content__recipe p {
-  height: 110px;
+  height: 108px;
+  line-height: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 0;

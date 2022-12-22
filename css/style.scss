@@ -36,7 +36,8 @@ header {
 nav {
     height: 150px;
     .taglist--active {
-        overflow-y: scroll;
+        width: 100%;
+        overflow-x: auto;
         margin-bottom: 0;
         margin-top: 1rem;
         .tag {
@@ -108,8 +109,10 @@ nav {
         }
         section[class^='dropdown__list--'] {
             color: #FFF;
-            max-height: 305px;
-            overflow: scroll;
+            max-height: 164px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0,0,0,0.25) transparent;
             li {
                 cursor: default;
                 &:hover {
@@ -194,7 +197,8 @@ nav {
             grid-template-columns: 1fr 1fr;
             font-size: 12px;
             &__recipe p {
-                height: 110px;
+                height: 108px;
+                line-height: 18px;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 margin-bottom: 0;
