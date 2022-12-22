@@ -15,7 +15,7 @@ function makeToggleable(li, type) {
         li.classList.add('d-none'); 
         const tag = document.createElement('li');
         tag.classList.add('tag','d-sm-flex','align-items-center','justify-content-between');
-        tag.classList.add(`tag--${type}s`);
+        tag.classList.add(`tag--${type}`);
         tag.innerHTML = `<span>${li.textContent}</span><i class="fa-regular fa-circle-xmark"></i>`;
         const tags = document.querySelector('.taglist--active');
         tags.appendChild(tag);
@@ -66,7 +66,7 @@ function render() {
     searchForIngredient.addEventListener('keyup', function (e) {
         const ingredientList = document.querySelector('.ingredients-list');
         getSearchedIngredients(e,searchForIngredient.value).forEach(function (ingredient) {
-            ingredientList.appendChild(addOneTag('ingredient',ingredient));
+            ingredientList.appendChild(addOneTag('ingredients',ingredient));
         })
     })
 
@@ -75,7 +75,7 @@ function render() {
     searchForAppliance.addEventListener('keyup', function (e) {
         const applianceList = document.querySelector('.appliances-list');
         getSearchedAppliances(e,searchForAppliance.value).forEach(function (appliance) {
-            applianceList.appendChild(addOneTag('appliance',appliance));
+            applianceList.appendChild(addOneTag('appliances',appliance));
         })
     })
 
@@ -84,7 +84,7 @@ function render() {
     searchForUstensil.addEventListener('keyup', function (e) {
         const ustensilList = document.querySelector('.ustensils-list');
         getSearchedUstensils(e,searchForUstensil.value).forEach(function (ustensil) {
-            ustensilList.appendChild(addOneTag('ustensil',ustensil));
+            ustensilList.appendChild(addOneTag('ustensils',ustensil));
         })
     })
 }
