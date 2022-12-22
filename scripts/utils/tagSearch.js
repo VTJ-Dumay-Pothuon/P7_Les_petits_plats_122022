@@ -49,6 +49,7 @@ function filterByTag(tags) {
         Array.from(tag.classList).find(tag => tag.startsWith('tag--'))];
     })
 
+    const recipesField = document.querySelector('main.recipes');
     recipesField.innerHTML = '';
 
     tagSearch(recipes, activeTags).forEach(function (recipe) {

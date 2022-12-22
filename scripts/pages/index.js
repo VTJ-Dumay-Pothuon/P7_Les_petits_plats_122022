@@ -50,6 +50,24 @@ function fill(type) {
     items.forEach(function (tag) {
         list.appendChild(addOneTag(type,tag));
     })
+
+    const searchForTag = document.querySelector(`.dropdown__${type} input`);
+    searchForTag.addEventListener('keyup', function (e) {
+        const tagList = document.querySelector(`.${type}-list`);
+        if (type === 'ingredients') {
+            getSearchedIngredients(e,searchForTag.value).forEach(function (ingredient) {
+                tagList.appendChild(addOneTag('ingredients',ingredient));
+            })
+        } else if (type === 'appliances') {
+            getSearchedAppliances(e,searchForTag.value).forEach(function (appliance) {
+                tagList.appendChild(addOneTag('appliances',appliance));
+            })
+        } else if (type === 'ustensils') {
+            getSearchedUstensils(e,searchForTag.value).forEach(function (ustensil) {
+                tagList.appendChild(addOneTag('ustensils',ustensil));
+            })
+        }
+    })
 }
 
 // Recipe card builder
@@ -64,7 +82,7 @@ function render() {
     const recipeSearch = document.querySelector('#searchbar input');
     recipeSearch.addEventListener('keyup', function (e) {
         // if length of searchbar is less than 3, don't filter
-        if (recipeSearch.value.length < 3) {
+        if (recipeSearch.value.length <3 ) {
             recipesField.innerHTML = '';
             render();
         } else {
@@ -78,31 +96,8 @@ function render() {
     })
 
     fill('ingredients');
-    const searchForIngredient = document.querySelector('.dropdown__ingredients input');
-    searchForIngredient.addEventListener('keyup', function (e) {
-        const ingredientList = document.querySelector('.ingredients-list');
-        getSearchedIngredients(e,searchForIngredient.value).forEach(function (ingredient) {
-            ingredientList.appendChild(addOneTag('ingredients',ingredient));
-        })
-    })
-
     fill('appliances');
-    const searchForAppliance = document.querySelector('.dropdown__appliances input');
-    searchForAppliance.addEventListener('keyup', function (e) {
-        const applianceList = document.querySelector('.appliances-list');
-        getSearchedAppliances(e,searchForAppliance.value).forEach(function (appliance) {
-            applianceList.appendChild(addOneTag('appliances',appliance));
-        })
-    })
-
     fill('ustensils');
-    const searchForUstensil = document.querySelector('.dropdown__ustensils input');
-    searchForUstensil.addEventListener('keyup', function (e) {
-        const ustensilList = document.querySelector('.ustensils-list');
-        getSearchedUstensils(e,searchForUstensil.value).forEach(function (ustensil) {
-            ustensilList.appendChild(addOneTag('ustensils',ustensil));
-        })
-    })
 }
 
 render();
