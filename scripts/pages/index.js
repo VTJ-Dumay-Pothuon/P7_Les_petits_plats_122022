@@ -108,6 +108,9 @@ function render() {
         if (recipeSearch.value.length <3 ) {
             recipesField.innerHTML = '';
             render();
+            // if there are tags, re-filter by tags
+            const tags = document.querySelector('.taglist--active');
+            if (tags.childElementCount > 0) { filterByTag(tags) }
         } else {
             recipesField.innerHTML = '';
             const filteredRecipes = getFilteredRecipes(e,recipeSearch.value);
