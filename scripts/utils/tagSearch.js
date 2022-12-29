@@ -1,7 +1,14 @@
 function tagSearch(recipes, activeTags) {
     
     // Level 0 of recursion: no more tags to filter by, we return the recipes
-    if (activeTags.length === 0) { return recipes }
+    if (activeTags.length === 0) { 
+        const searchField = document.querySelector('#searchbar input');
+        if (searchField.value.length >= 3) {
+            return getFilteredRecipes(searchField.value);
+        } else {
+            return recipes;
+        }
+     }
 
     // Level 1 of recursion: we filter by the first tag
     // if the tag is an ingredient, we filter by the ingredient name

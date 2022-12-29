@@ -113,7 +113,7 @@ function render() {
             if (tags.childElementCount > 0) { filterByTag(tags) }
         } else {
             recipesField.innerHTML = '';
-            const filteredRecipes = getFilteredRecipes(e,recipeSearch.value);
+            const filteredRecipes = getFilteredRecipes(recipeSearch.value);
             filteredRecipes.forEach(function (recipe) {
                 const recipeCard = getRecipeCardDOM(recipe);
                 recipesField.appendChild(recipeCard);
