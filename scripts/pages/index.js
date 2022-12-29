@@ -94,7 +94,7 @@ function fill(type) {
 }
 
 // Recipe card builder
-function render() {
+function render(init=false) {
 
     const recipesField = document.querySelector('main.recipes');
     recipes.forEach(function (recipe) {
@@ -103,27 +103,31 @@ function render() {
     })
 
     const recipeSearch = document.querySelector('#searchbar input');
-    recipeSearch.addEventListener('keyup', function (e) {
-        // if length of searchbar is less than 3, don't filter
-        if (recipeSearch.value.length <3 ) {
-            recipesField.innerHTML = '';
-            render();
+    // The boolean init is used to prevent the event listener from being added
+    // multiple times when the page is re-rendered.
+    if (init) {
+        recipeSearch.addEventListener('keyup', function (e) {
+            // if length of searchbar is less than 3, don't filter
+            if (recipeSearch.value.length <3 ) {
+                recipesField.innerHTML = '';
+                render();
+            } else {
+                recipesField.innerHTML = '';
+                const filteredRecipes = getFilteredRecipes(recipeSearch.value);
+                filteredRecipes.forEach(function (recipe) {
+                    const recipeCard = getRecipeCardDOM(recipe);
+                    recipesField.appendChild(recipeCard);
+                })
+            }
             // if there are tags, re-filter by tags
             const tags = document.querySelector('.taglist--active');
             if (tags.childElementCount > 0) { filterByTag(tags) }
-        } else {
-            recipesField.innerHTML = '';
-            const filteredRecipes = getFilteredRecipes(recipeSearch.value);
-            filteredRecipes.forEach(function (recipe) {
-                const recipeCard = getRecipeCardDOM(recipe);
-                recipesField.appendChild(recipeCard);
-            })
-        }
-    })
-
-    fill('ingredients');
-    fill('appliances');
-    fill('ustensils');
+        })
+        
+        fill('ingredients');
+        fill('appliances');
+        fill('ustensils');
+    }
 }
 
-render();
+render(true);
