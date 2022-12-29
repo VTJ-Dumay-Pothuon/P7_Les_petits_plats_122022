@@ -1,13 +1,20 @@
-function tagSearch(recipes, activeTags) {
+function tagSearch(currentRecipes, activeTags) {
     
     // Level 0 of recursion: no more tags to filter by, we return the recipes
-    if (activeTags.length === 0) { return recipes }
+    if (activeTags.length === 0) { 
+        const searchField = document.querySelector('#searchbar input');
+        if (searchField.value.length >= 3) {
+            return getFilteredRecipes(searchField.value, currentRecipes);
+        } else {
+            return currentRecipes;
+        }
+     }
 
     // Level 1 of recursion: we filter by the first tag
     // if the tag is an ingredient, we filter by the ingredient name
     if (activeTags[0][1]=='tag--ingredients') {
         // filteredRecipes is an array of recipes that contain the ingredient
-        const filteredRecipes = recipes.filter(function (recipe) {
+        const filteredRecipes = currentRecipes.filter(function (recipe) {
             // this array is built by filtering the ingredients of the recipe
             return recipe.ingredients.some(function (ingredient) {
                 // each ingredient from each recipe is compared to the tag name
@@ -21,14 +28,14 @@ function tagSearch(recipes, activeTags) {
     // if the tag is an appliance, we filter by the appliance name.
     // in that case, there is only one appliance per recipe, so we don't need to use .some()
     } else if (activeTags[0][1]=='tag--appliances') {
-        const filteredRecipes = recipes.filter(function (recipe) {
+        const filteredRecipes = currentRecipes.filter(function (recipe) {
             return recipe.appliance.toLowerCase() === activeTags[0][0].toLowerCase();
         });
         return tagSearch(filteredRecipes, activeTags.slice(1));
 
     // for ustensils, it works the same way as for ingredients.
     } else if (activeTags[0][1]=='tag--ustensils') {
-        const filteredRecipes = recipes.filter(function (recipe) {
+        const filteredRecipes = currentRecipes.filter(function (recipe) {
             return recipe.ustensils.some(function (ustensil) {
                 return ustensil.toLowerCase() === activeTags[0][0].toLowerCase();
             })
