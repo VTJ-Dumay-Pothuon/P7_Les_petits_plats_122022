@@ -1,5 +1,5 @@
 // This file will be different depending on the branch you're on.
-function getFilteredRecipes(e,searchedRecipe) {
+function getFilteredRecipes(searchedRecipe) {
     // On this "native" branch, we're using the native loops and methods
     let matchingRecipes = [];
     for (recipe of recipes) {
