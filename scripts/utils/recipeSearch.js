@@ -14,12 +14,4 @@ function getFilteredRecipes(searchedRecipe, currentRecipes=recipes) {
         }
     }
     return matchingRecipes;
-}if (recipe.name.toLowerCase().includes(searchedRecipe.toLowerCase())) {
-            matchingRecipes.push(recipe);
-        } else
-        if (recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(searchedRecipe.toLowerCase()))) {
-            matchingRecipes.push(recipe);
-        } else
-        if (recipe.description.toLowerCase().includes(searchedRecipe.toLowerCase())) {
-            matchingRecipes.push(recipe);
-        }
+}
