@@ -9,6 +9,26 @@ function getAllItems(type) {
     }
 }
 
+// Depending on the number of tags found, the column span is changed
+// and the width of the dropdown is adjusted to fit the content.
+function adjustWidth(tagList, tagDropDown) {
+    if (tagList.childElementCount < 10) {
+        tagList.querySelectorAll('li').forEach(function (li) {
+            li.classList.remove('col-md-4');
+            li.classList.add('col-md-12');
+        })
+        tagDropDown.style.width = '14vw';
+    } else if (tagList.childElementCount < 20) {
+        tagList.querySelectorAll('li').forEach(function (li) {
+            li.classList.remove('col-md-4');
+            li.classList.add('col-md-6');
+        })
+        tagDropDown.style.width = '25vw';
+    } else {
+        tagDropDown.removeAttribute('style');
+    }
+}
+
 // Turns any tag into a toggleable tag
 function makeToggleable(li, type) {
     li.addEventListener('click', function () {
@@ -33,7 +53,7 @@ function makeToggleable(li, type) {
 // Unique tag factory
 function addOneTag(type,tag) {
     const li = document.createElement('li');
-    li.classList.add(`${type}`.slice(0, -1),'col-4');
+    li.classList.add(`${type}`.slice(0, -1),'col-6','col-md-4');
     li.textContent = tag;
     makeToggleable(li, type);
     return li;
@@ -51,7 +71,8 @@ function fill(type) {
         list.appendChild(addOneTag(type,tag));
     })
 
-    const searchForTag = document.querySelector(`.dropdown__${type} input`);
+    const tagDropDown = document.querySelector(`.dropdown__${type}`);
+    const searchForTag = tagDropDown.querySelector('input');
     searchForTag.addEventListener('keyup', function (e) {
         const tagList = document.querySelector(`.${type}-list`);
         if (type === 'ingredients') {
@@ -67,7 +88,9 @@ function fill(type) {
                 tagList.appendChild(addOneTag('ustensils',ustensil));
             })
         }
+        adjustWidth(tagList, tagDropDown);
     })
+    adjustWidth(list, tagDropDown);
 }
 
 // Recipe card builder
@@ -85,6 +108,9 @@ function render() {
         if (recipeSearch.value.length <3 ) {
             recipesField.innerHTML = '';
             render();
+            // if there are tags, re-filter by tags
+            const tags = document.querySelector('.taglist--active');
+            if (tags.childElementCount > 0) { filterByTag(tags) }
         } else {
             recipesField.innerHTML = '';
             const filteredRecipes = getFilteredRecipes(e,recipeSearch.value);

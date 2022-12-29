@@ -34,7 +34,6 @@ header {
 }
 
 nav {
-    height: 150px;
     .taglist--active {
         width: 100%;
         overflow-x: auto;
@@ -77,10 +76,6 @@ nav {
             position: absolute;
             left: 0;
             top: 23px;
-            width: 40vw;
-            max-width: 700px;
-            height: 24vw;
-            max-height: 400px;
             .fa-chevron-up {
                 position: absolute;
                 right: 16px;
@@ -95,7 +90,7 @@ nav {
             border: none;
             color: #FFF;
             opacity: 0.5;
-            font-size: 18px;
+            font-size: 12px;
             font-weight: 700;
             &:focus {
                 background: transparent;
@@ -109,7 +104,7 @@ nav {
         }
         section[class^='dropdown__list--'] {
             color: #FFF;
-            max-height: 154px;
+            max-height: 85%;
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: rgba(0,0,0,0.25) transparent;
@@ -214,6 +209,24 @@ nav {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 6;
+    }
+}
+
+@media screen and (min-width: 655px) {
+    nav {
+        height: 150px;
+        .dropdown {
+            &-menu {
+                width: 40vw;
+                max-width: 700px;
+                height: 24vw;
+                max-height: 400px;
+            }
+            &-search {
+                width: 90%;
+                font-size: 18px;
+            }
+        }
     }
 }
 
