@@ -2,7 +2,7 @@
 function getFilteredRecipes(searchedRecipe, currentRecipes=recipes) {
     // On this "array" branch, we're using the array forEach method
     let matchingRecipes = [];
-    recipes.forEach(function (recipe) {
+    currentRecipes.forEach(function (recipe) {
         if (recipe.name.toLowerCase().includes(searchedRecipe.toLowerCase())) {
             matchingRecipes.push(recipe);
         } else
