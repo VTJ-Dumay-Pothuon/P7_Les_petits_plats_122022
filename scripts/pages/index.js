@@ -29,23 +29,33 @@ function adjustWidth(tagList, tagDropDown) {
     }
 }
 
+// if there are no recipes, the message is displayed
+function checkIfEmpty() {
+    const recipesField = document.querySelector('.recipes');
+    if (recipesField.childElementCount === 0) {
+        recipesField.innerHTML = '<p class="text-center pt-5">Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>';
+    }
+}
+
 // Turns any tag into a toggleable tag
 function makeToggleable(li, type) {
     li.addEventListener('click', function () {
         li.classList.add('d-none'); 
         const tag = document.createElement('li');
-        tag.classList.add('tag','d-sm-flex','align-items-center','justify-content-between');
+        tag.classList.add('tag','d-inline-flex','d-sm-flex','align-items-center','justify-content-between');
         tag.classList.add(`tag--${type}`);
         tag.innerHTML = `<span>${li.textContent}</span><i class="fa-regular fa-circle-xmark"></i>`;
         const tags = document.querySelector('.taglist--active');
         tags.appendChild(tag);
         filterByTag(tags);
+        checkIfEmpty();
 
         const removeTag = tag.querySelector('i');
         removeTag.addEventListener('click', function () {
             tags.removeChild(tag);
             li.classList.remove('d-none');
             filterByTag(tags);
+            checkIfEmpty();
         })
     })
 }
@@ -103,8 +113,8 @@ function render(init=false) {
     })
 
     const recipeSearch = document.querySelector('#searchbar input');
-    // The boolean init is used to prevent the event listener from being added
-    // multiple times when the page is re-rendered.
+    // The boolean init is used to prevent the event listener and tags
+    // from being added multiple times when the page is re-rendered.
     if (init) {
         recipeSearch.addEventListener('keyup', function (e) {
             // if length of searchbar is less than 3, don't filter
@@ -122,6 +132,7 @@ function render(init=false) {
             // if there are tags, re-filter by tags
             const tags = document.querySelector('.taglist--active');
             if (tags.childElementCount > 0) { filterByTag(tags) }
+            checkIfEmpty();
         })
         
         fill('ingredients');
