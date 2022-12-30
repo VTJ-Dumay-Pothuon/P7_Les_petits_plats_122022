@@ -2,7 +2,7 @@
 function getFilteredRecipes(searchedRecipe, currentRecipes=recipes) {
     // On this "native" branch, we're using the native loops and methods
     let matchingRecipes = [];
-    for (recipe of currentRecipes) {
+    for (let recipe of currentRecipes) {
         if (recipe.name.toLowerCase().includes(searchedRecipe.toLowerCase())) {
             matchingRecipes.push(recipe);
         } else
