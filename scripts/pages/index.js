@@ -14,16 +14,16 @@ function getAllItems(type) {
 function adjustWidth(tagList, tagDropDown) {
     if (tagList.childElementCount < 10) {
         tagList.querySelectorAll('li').forEach(function (li) {
-            li.classList.remove('col-md-4');
-            li.classList.add('col-md-12');
+            li.classList.remove('col-lg-4');
+            li.classList.add('col-lg-12');
         })
-        tagDropDown.style.width = '14vw';
+        if (window.innerWidth > 960) { tagDropDown.style.width = '14vw'}
     } else if (tagList.childElementCount < 20) {
         tagList.querySelectorAll('li').forEach(function (li) {
-            li.classList.remove('col-md-4');
-            li.classList.add('col-md-6');
+            li.classList.remove('col-lg-4');
+            li.classList.add('col-lg-6');
         })
-        tagDropDown.style.width = '25vw';
+        if (window.innerWidth > 960) { tagDropDown.style.width = '25vw'}
     } else {
         tagDropDown.removeAttribute('style');
     }
@@ -63,7 +63,7 @@ function makeToggleable(li, type) {
 // Unique tag factory
 function addOneTag(type,tag) {
     const li = document.createElement('li');
-    li.classList.add(`${type}`.slice(0, -1),'col-6','col-md-4');
+    li.classList.add(`${type}`.slice(0, -1),'col-6','col-lg-4');
     li.textContent = tag;
     makeToggleable(li, type);
     return li;
